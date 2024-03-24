@@ -1,0 +1,871 @@
+/* Colores y Tipografía del tema */
+:root {
+    --text-color: rgb(0, 59, 74);
+    --text-color-dark-background: rgb(255, 255, 255);
+    --contrast-color: rgb(191, 12, 240);
+    --contrast-color-light: rgb(229, 225, 254);
+    --bg-color: rgb(247, 247, 247);
+    --text-color-grey: rgb(158, 157, 171);
+    --lato: 'Lato', sans-serif;
+    --noto-serif: 'Noto Serif', serif;
+}
+
+
+/* Box-model alternativo */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile First */
+/* Breakpoints Móvil 576px, Tableta 768px, Desktop 992px */
+/* Estilos generales de tipografía y colores */
+html,
+body {
+    font-family: var(--lato);
+    font-weight: 400;
+    font-size: 1.1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+h1.index{
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+h1:not(.index){
+    font-family: var(--noto-serif);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+h2,
+h3,
+h4 {
+    font-family: var(--noto-serif);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h2.index {
+    font-size: 2rem;
+}
+
+h2:not(.index),h3.index{
+    font-size:1.6rem;
+}
+
+h3.entrada{
+    font-size:1.4rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+nav {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.info-auxiliar {
+    font-size: 0.75rem;
+}
+
+figcaption {
+    font-size: 0.75rem;
+    text-align: right;
+}
+
+.button {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-color-dark-background);
+}
+
+.meta p {
+    color: var(--text-color-grey);
+    font-size: 0.75rem;
+}
+
+.migas-de-pan {
+    font-size: 0.8rem;
+}
+
+.header {
+    background-color: var(--text-color-dark-background);
+}
+
+.footer {
+    background-color: var(--text-color);
+    color: var(--text-color-dark-background);
+    font-size: 0.8rem;
+    padding: 0 15px;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+
+/* Reglas que consiguen que .container se adapten a los diversos dispositivos y los contenidos con clase de .contenido dentro del contenedor no se vuelva demasiado ancho en pantallas más grandes como desktop, y que se muestren horizontalmente centrados, menteniendo así la legibilidad */
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width:992px) {
+    .container {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+
+    .contenido {
+        max-width: 960px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}
+
+
+/* Header y Menú de Navegación */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+header.header{
+    position:sticky;  /* para fijar la cabeceera sin sacarla fuera del flujo normal */
+    top:0;
+    z-index:1000;  /* para mostrarse siempre encima de todos los restos elementos */
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* consigue que el menu tenga una disposición horizontal y alineado a la derecha */
+
+.navbar ul li:first-child::after {
+    content: " | ";
+    padding: 0 10px;
+}
+
+/* consigue que la barra vertical se ubique en el medio de dos opciones de menú */
+
+/* Ajustes de Menú de Navegación para desktop */
+@media (min-width:992px) {
+    .navbar {
+        right: 40px;  /* en desktop, los paddings del .container es de 40px */
+    }
+}
+
+
+/* Footer */
+footer .container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding-top: 1.5em;
+    padding-bottom: 2.5em;
+}
+
+.footer-bloque-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.footer-bloque-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.legal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.footer-bloque-1 span:first-child::after {
+    content: " | ";
+    padding: 0 5px;
+
+}
+
+.social-menu li {
+    display: inline-block;
+}
+
+/* Ajustes de footer para desktop */
+@media (min-width:992px) {
+    footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .legal li:not(:last-child)::after {
+        content: " | ";
+        padding: 0 5px;
+    }
+
+    .footer-bloque-1 {
+        align-items: flex-start;
+    }
+
+    .footer-bloque-2 {
+        align-items: flex-end;
+    }
+
+    .legal {
+        flex-direction: row;
+    }
+}
+
+
+/* Reglas de enlaces para todas las páginas */
+.navbar a {
+    color: var(--text-color);
+}
+
+.navbar a:hover {
+    color: var(--contrast-color);
+}
+
+footer a {
+    color: var(--text-color-dark-background);
+}
+
+footer a:hover {
+    color: var(--contrast-color-light);
+}
+
+.social-menu li a img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.social-menu li a:hover img {
+    opacity: 0.7;
+}
+
+.enlace-texto {
+    color: var(--contrast-color);
+    border-bottom: 1px dotted var(--contrast-color);
+}
+
+.enlace-texto:hover {
+    color: var(--text-color);
+    border-bottom: 1px dotted var(--text-color);
+}
+
+.button:hover {
+    background-color: var(--contrast-color);
+}
+
+a.titular-entrada {
+    color: var(--text-color);
+}
+
+a.titular-entrada:hover {
+    color: var(--contrast-color);
+}
+
+a.category {
+    display: inline-block;
+    background-color: var(--text-color);
+    color: var(--text-color-dark-background);
+    padding: 8px;
+    border: none;
+}
+
+a.category:hover {
+    background-color: var(--contrast-color);
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: var(--text-color);
+    border: 1.5px solid var(--text-color);
+    padding: 6px 5px;
+    margin-right: 8px;
+}
+
+.pagination a:active,
+.pagination a:hover {
+    background-color: var(--contrast-color);
+    color: var(--text-color-dark-background);
+    border: 1.5px solid var(--contrast-color);
+}
+
+a.breadcrumbs {
+    color: var(--text-color);
+}
+
+a.breadcrumbs:hover {
+    color: var(--contrast-color);
+}
+
+.category-list ul li {
+    background-color: var(--text-color-dark-background);
+}
+
+.category-list ul li:hover {
+    background-color: var(--contrast-color);
+    color: var(--text-color-dark-background);
+}
+
+.category-list ul li a {
+    color: var(--text-color);
+}
+
+.category-list ul li:hover a {
+    color: var(--text-color-dark-background);
+}
+
+
+/* Reglas de la página de index.com */
+.hero-image {
+    background-image: url("../img/img-index/hero-image-home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-image h1 {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* mejorar la legibilidad */
+}
+
+.hero-image h1 span.break-mobile{
+    display:block;
+}
+
+h2.titular-intro {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.intro p {
+    padding-bottom: 20px;
+}
+
+label {
+    display: block;
+}
+
+form li label {
+    margin-bottom: 5px;
+}
+
+form li {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--contrast-color-light);
+    border-radius: 5px;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+    font-family: var(--lato);
+    color: var(--text-color-grey);
+    font-size: 0.9rem;
+}
+
+.custom-checkbox {
+    display: none;  /* ocultar el checkbox predeterminado */
+}
+
+.checkbox-style::before {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--text-color-grey);
+    border-radius: 3px;
+    vertical-align: middle;
+    content:"";
+    line-height:16px;
+}  /* mostrar un cuadro peronalizado en su lugar */
+
+.custom-checkbox:checked + .checkbox-style::before{
+    content: "✓";
+    color: var(--contrast-color);
+    font-size:16px;
+} /* agregar una marca de verificación cuando la casilla está marcada */
+
+.button {
+    display: inline-block;
+    background-color: var(--text-color);
+    margin-top: 20px;
+    padding: 8px 8px;
+    height:40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-section {
+    margin-top: 50px;
+    padding-top: 35px;
+    padding-bottom: 80px;
+    background-color: var(--contrast-color-light);
+}
+
+.card {
+    margin-bottom: 35px;
+}
+
+.card p {
+    font-size: 1.15rem;
+}
+
+.card-body h3 {
+    margin-bottom: 18px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover
+}  /* imagen responsive */
+
+/* Ajustes de index.com para tabletas y desktops */
+@media (min-width:768px) {
+    .hero-image h1 span.break-mobile{
+        display:inline;
+    }
+    .card-section .contenido {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .card-body {
+        align-self: center;
+    }
+
+    .card {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    .right {
+        order: 1;
+        transform: rotate(5deg);
+    }
+
+    .left {
+        order: -1;
+        transform: rotate(-5deg);
+    }
+
+    .card-img-top {
+        max-width: 500px;
+        /* reducir el tamaño de imagen para que no se toque las paredes laterales en caso de rotación*/
+    }
+}
+
+
+@media (min-width:992px) {
+    .hero-image h1.contenido.index{
+        width:960px;
+    }  /* para alinear el lema con los restos de elementos de la página */
+
+    .hero-image h1 span.break-desktop{
+        display:block;
+    }
+
+    .two-col {
+        display: grid;
+        gap: 50px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* Reglas de la página de blog.com */
+.titular-blog {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.meta p {
+    margin-top: 8px;
+}
+
+.tarjeta-contenido h2 {
+    margin-bottom: 10px;
+}
+
+.tarjeta-contenido a.enlace-texto {
+    display: inline-block;
+}
+
+.tarjeta-contenido a.enlace-texto {
+    margin-top: 20px;
+}
+
+.blog-content article {
+    border: 1px solid rgba(158, 157, 171, 0.2);
+    margin-bottom: 35px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.tarjeta-contenido {
+    order: 1;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.tarjeta-imagen {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 0;
+    padding-top: 66.7%;
+    /* truco para mantener la resolución de la imagen (en este caso: 1000 : 667) */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.tarjeta-imagen .caption {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 0.75rem;
+    background-color: rgba(247, 247, 247, 0.5);
+}
+
+.tarjeta-imagen .category {
+    position: absolute;
+    top: 0.8em;
+    left: 0.8em;
+}
+
+.tarjeta-1 {
+    background-image: url("../img/img-blog/estrategias-vida-activa.jpg");
+}
+
+.tarjeta-2 {
+    background-image: url("../img/img-blog/desintoxicacion-digital.jpg");
+}
+
+.tarjeta-3 {
+    background-image: url("../img/img-blog/conexion-mente-cuerpo.jpg");
+}
+
+.tarjeta-4 {
+    background-image: url("../img/img-blog/alimentos-combaten-estres.jpg");
+}
+
+.tarjeta-5 {
+    background-image: url("../img/img-blog/yoga-principiantes.jpg");
+}
+
+.tarjeta-6 {
+    background-image: url("../img/img-blog/hidratacion.jpg");
+}
+
+.tarjeta-7 {
+    background-image: url("../img/img-blog/importancia-sueno-salud.jpg");
+}
+
+.tarjeta-contenido .enlace-texto::after {
+    content: " >";
+    margin-left: 5px;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+
+.pagination a {
+    padding: 6px 8px;
+}
+
+/* Ajustes de blog.com para tableta y desktops */
+@media(min-width:768px) {
+    .blog-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    .blog-content article {
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width:992px) {
+    .blog-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 40px;
+    }
+
+    .blog-content .span-2 {
+        grid-column: span 2;
+    }
+}
+
+
+/* Reglas de la página de entrada.com */
+.migas-de-pan {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.titular-article {
+    display: grid;
+    grid-template-rows: auto auto;
+    border: 1px solid rgba(158, 157, 171, 0.2);
+    margin-bottom: 40px;
+}
+
+.titular-article img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.titular-article .titular-entrada {
+    background-color: var(--contrast-color-light);
+    padding: 5px 10px 15px 15px;
+}
+
+span.color-azul {
+    color: var(--text-color);
+}
+
+p.intro-article, blockquote .quote {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.article-entrada p:not(.intro-article):not(blockquote .quote),
+.article-entrada ul, .article-entrada ol{
+    font-size:0.9rem;
+}
+
+h2.sub-titular {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+ol,
+ul.lista-inherit {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+ol li,
+ul.lista-inherit li {
+    list-style-type: inherit;
+    margin-bottom: 15px;
+}
+
+blockquote {
+    border-left: 3px solid var(--contrast-color);
+    margin-left: 30px;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+blockquote p {
+    margin-top: 20px;
+}
+
+p.conclution {
+    padding-bottom: 20px;
+}
+
+article.article-entrada {
+    border: 1px solid rgba(158, 157, 171, 0.2);
+    padding: 15px 15px 0 15px;
+    margin-bottom: 35px;
+}
+
+.articulo-reciente h3 {
+    margin-bottom: 20px;
+}
+
+.titular-entrada h4 {
+    margin-top: 8px;
+}
+
+.articulo-reciente .wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.wrapper li {
+    border: 1px solid rgba(158, 157, 171, 0.2);
+}
+
+
+.tarjeta-imagen .category {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-size: 0.75rem;
+}
+
+.category-list {
+    margin-top: 35px;
+}
+
+.category-list ul li {
+    display: inline-block;
+    border: 1.5px solid var(--text-color);
+    margin-top: 20px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.category-list ul {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0px 15px;
+}
+
+.wrapper-barra-lateral {
+    margin-bottom: 80px;
+}
+
+/* Ajustes de entrada.com para tabletas y desktops */
+@media(min-width:768px) and (max-width:991px) {
+    .articulo-reciente .wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+@media(min-width:992px) {
+    .wrapper-barra-lateral {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+    }
+}
+
+
+/* Reglas para la página de videos.com */
+.video-content {
+    padding-bottom: 50px;
+}
+
+.video-content p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.tarjeta-description {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tarjeta-description h2 {
+    padding-top: 20px;
+}
+
+.tarjeta-video {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid rgba(158, 157, 171, 0.2);
+    margin-bottom: 40px;
+}
+
+.video-fluid {
+    position: relative;
+    overflow: hidden;
+    order: -1;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+}
+
+.video-fluid-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* Ajustes de video.com para tabletas y desktops */
+@media(min-width:768px) {
+    .video-content {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(min-width:992px) {
+    .video-content {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
